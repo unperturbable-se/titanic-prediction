@@ -1,15 +1,25 @@
 import pandas as pd
-test = pd.read_csv("test.csv")
-# print(test.head(10))
-# print(test.columns)
-# print(test.columns[2])
-a=test.get(["Pclass"])
-# print(a)
+import matplotlib.pyplot as plt
 train = pd.read_csv("train.csv")
-b = train.get(["PassengerId","Survived"])
-# print(b)
-c = a+b
-print(c)
+# a=train.groupby(["Sex","Survived"]).mean()
+# print("Average rate of Survival by Sex")
+# print(a)
+# male = a["male"]
+# female = a["female"]
+# print(f"The Average is for male {male/890} and female {female/890}")
 
 
+
+
+#----------------------------------MODEL ig percentage chances btane hain 
+
+import pandas as pd
+test=pd.read_csv("test.csv")
+
+answer=pd.get(["PassengerId"])
+
+for i in range(test):
+    if test[i]["Sex"]=="male":
+        for row in answer:
+            if(row[""])
 
