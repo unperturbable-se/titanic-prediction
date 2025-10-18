@@ -1,15 +1,27 @@
-import pandas as pd
-test = pd.read_csv("test.csv")
+#import pandas as pd
+#test = pd.read_csv("test.csv")
+#gender_submission=pd.read_csv("gender_submission.csv")
+#a=test.get(["PassengerId","sex"])
+#print(a)
 # print(test.head(10))
 # print(test.columns)
 # print(test.columns[2])
-a=test.get(["Pclass"])
+# a=test.get(["PassengerId","Pclass"])
 # print(a)
-train = pd.read_csv("train.csv")
-b = train.get(["PassengerId","Survived"])
+# train = pd.read_csv("train.csv")
+# b = train.get(["PassengerId","Survived"])
+# a.merge(right=b,how="left",on="PassengerId")
 # print(b)
-c = a+b
-print(c)
+
+import pandas as pd
+import matplotlib.pyplot as plt
+test = pd.read_csv("test.csv")
+b = pd.read_csv("gender_submission.csv")
+
+test = test.merge(right=b, on="PassengerId", how="left")
+
+a = test[["Sex", "Survived"]].groupby("Sex")["Survived"].sum()
+print(a.head())
 
 
 
