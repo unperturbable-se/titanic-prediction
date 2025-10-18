@@ -1,25 +1,27 @@
+#import pandas as pd
+#test = pd.read_csv("test.csv")
+#gender_submission=pd.read_csv("gender_submission.csv")
+#a=test.get(["PassengerId","sex"])
+#print(a)
+# print(test.head(10))
+# print(test.columns)
+# print(test.columns[2])
+# a=test.get(["PassengerId","Pclass"])
+# print(a)
+# train = pd.read_csv("train.csv")
+# b = train.get(["PassengerId","Survived"])
+# a.merge(right=b,how="left",on="PassengerId")
+# print(b)
+
 import pandas as pd
 import matplotlib.pyplot as plt
-train = pd.read_csv("train.csv")
-# a=train.groupby(["Sex","Survived"]).mean()
-# print("Average rate of Survival by Sex")
-# print(a)
-# male = a["male"]
-# female = a["female"]
-# print(f"The Average is for male {male/890} and female {female/890}")
+test = pd.read_csv("test.csv")
+b = pd.read_csv("gender_submission.csv")
+
+test = test.merge(right=b, on="PassengerId", how="left")
+
+a = test[["Sex", "Survived"]].groupby("Sex")["Survived"].sum()
+print(a.head())
 
 
-
-
-#----------------------------------MODEL ig percentage chances btane hain 
-
-import pandas as pd
-test=pd.read_csv("test.csv")
-
-answer=pd.get(["PassengerId"])
-
-for i in range(test):
-    if test[i]["Sex"]=="male":
-        for row in answer:
-            if(row[""])
 
