@@ -14,14 +14,16 @@
 # print(b)
 
 import pandas as pd
-import matplotlib.pyplot as plt
-test = pd.read_csv("test.csv")
-b = pd.read_csv("gender_submission.csv")
 
-test = test.merge(right=b, on="PassengerId", how="left")
+# Load the data and select specific columns
+test = pd.read_csv("test.csv")[["Sex", "PassengerId"]]
+gender=pd.read_csv("gender_submission.csv")
 
-a = test[["Sex", "Survived"]].groupby("Sex")["Survived"].sum()
-print(a.head())
+# Set 'Survived' to 1 if Sex is 'female', otherwise 0
+test['Survived'] = (test['Sex'] == 'male').astype(int)
+test=test.drop(columns="Sex")
+#print(test.head())
+#print(gender.head())
 
-
-
+differences=test.compare(gender)
+print(differences)

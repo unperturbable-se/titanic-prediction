@@ -12,9 +12,14 @@ train = pd.read_csv("train.csv")
 
 
 #----------------------------------MODEL ig percentage chances btane hain 
+
 import pandas as pd
-survival={""}
 test=pd.read_csv("test.csv")
-for row in test:
-    if row["Sex"]=="male":
-       survival+=0
+
+answer=pd.get(["PassengerId"])
+
+for i in range(test):
+    if test[i]["Sex"]=="male":
+        for row in answer:
+            if(row[""])
+
