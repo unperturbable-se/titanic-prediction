@@ -14,16 +14,4 @@
 # print(b)
 
 import pandas as pd
-
-# Load the data and select specific columns
-test = pd.read_csv("test.csv")[["Sex", "PassengerId"]]
-gender=pd.read_csv("gender_submission.csv")
-
-# Set 'Survived' to 1 if Sex is 'female', otherwise 0
-test['Survived'] = (test['Sex'] == 'male').astype(int)
-test=test.drop(columns="Sex")
-#print(test.head())
-#print(gender.head())
-
-differences=test.compare(gender)
-print(differences)
+import numpy as np
